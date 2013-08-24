@@ -125,7 +125,7 @@ public class SkillChaser extends TargettedSkill {
                             (SkillConfigManager.getUseSetting(hero, this, "damage-increase", 0.0, false) * hero.getSkillLevel(this)));
                     damage = damage > 0 ? damage : 0;
                     addSpellTarget(tHero.getPlayer(),hero);
-                    damageEntity(tHero.getPlayer(), player, damage, DamageCause.MAGIC);
+                    damageEntity(tHero.getPlayer(), player, damage, DamageCause.ENTITY_ATTACK);
                     //tHero.getPlayer().damage(damage, player);
                     long duration = (long) (SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) +
                             (SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0, false) * hero.getSkillLevel(this)));
@@ -163,7 +163,7 @@ public class SkillChaser extends TargettedSkill {
                     && Math.abs(hero.getPlayer().getLocation().getZ() - prevLocation.getZ()) < 1) {
                 //hero.getPlayer().damage(this.damageTick, caster);
                 addSpellTarget(hero.getPlayer(),plugin.getCharacterManager().getHero(caster));
-                damageEntity(hero.getPlayer(), caster, damageTick, DamageCause.MAGIC);
+                damageEntity(hero.getPlayer(), caster, damageTick, DamageCause.ENTITY_ATTACK);
             }
             prevLocation = hero.getPlayer().getLocation();
         }
