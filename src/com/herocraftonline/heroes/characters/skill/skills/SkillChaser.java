@@ -124,7 +124,7 @@ public class SkillChaser extends TargettedSkill {
                     double damage = (SkillConfigManager.getUseSetting(hero, this, SkillSetting.DAMAGE.node(), 5, false) +
                             (SkillConfigManager.getUseSetting(hero, this, "damage-increase", 0.0, false) * hero.getSkillLevel(this)));
                     damage = damage > 0 ? damage : 0;
-                    addSpellTarget(player,tHero);
+                    addSpellTarget(tHero.getPlayer(),hero);
                     damageEntity(tHero.getPlayer(), player, damage, DamageCause.MAGIC);
                     //tHero.getPlayer().damage(damage, player);
                     long duration = (long) (SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) +
