@@ -162,7 +162,8 @@ public class SkillChaser extends TargettedSkill {
                     && Math.abs(hero.getPlayer().getLocation().getX() - prevLocation.getX()) < 1
                     && Math.abs(hero.getPlayer().getLocation().getZ() - prevLocation.getZ()) < 1) {
                 //hero.getPlayer().damage(this.damageTick, caster);
-                damageEntity(hero.getPlayer(), caster, damageTick, DamageCause.ENTITY_ATTACK);
+                addSpellTarget(hero.getPlayer(),plugin.getCharacterManager().getHero(caster));
+                damageEntity(hero.getPlayer(), caster, damageTick, DamageCause.MAGIC);
             }
             prevLocation = hero.getPlayer().getLocation();
         }
